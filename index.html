@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whisker</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+    <script src="app.js" defer></script>
+    <link rel="icon" href="whisker-icon.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif !important;
+            margin: 20px !important;
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+
+        #markdownEditor {
+            width: 100% !important;
+            height: 300px !important;
+            resize: both !important;
+            overflow: auto !important;
+            padding: 10px !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            background-color: #000 !important;
+            /* Black background */
+            color: #fff !important;
+            /* White text */
+        }
+
+        #preview {
+            margin-top: 20px !important;
+            padding: 10px !important;
+            border: 1px solid #ccc !important;
+            border-radius: 4px !important;
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+
+        .button {
+            margin: 5px !important;
+            padding: 10px 20px !important;
+            border: none !important;
+            border-radius: 4px !important;
+            background-color: #FF5733 !important;
+            color: white !important;
+            cursor: pointer !important;
+        }
+
+        .button:hover {
+            background-color: #C70039 !important;
+        }
+
+        .toolbar {
+            margin-bottom: 10px !important;
+        }
+
+        .header {
+            margin-bottom: 20px !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .header img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .header a {
+            text-decoration: none !important;
+            color: #FF5733 !important;
+            display: flex;
+            align-items: center;
+        }
+
+        .header a:hover {
+            text-decoration: underline !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="https://github.com/captainarcher/whisker" target="_blank">
+            <img src="whisker-icon.png" alt="Whisker Icon">
+            <h1>Whisker</h1>
+        </a>
+    </div>
+    <div class="toolbar">
+        <button class="button" onclick="formatText('bold')">Bold</button>
+        <button class="button" onclick="formatText('italic')">Italic</button>
+        <button class="button" onclick="formatText('underline')">Underline</button>
+        <button class="button" onclick="formatText('heading')">Heading</button>
+        <button class="button" onclick="formatText('bullet')">Bullet</button>
+        <button class="button" onclick="formatText('indent')">Indent</button>
+    </div>
+    <input type="file" id="fileInput" class="button">
+    <button id="saveMdBtn" class="button">Save Markdown</button>
+    <button id="convertPdfBtn" class="button">Convert to PDF</button>
+    <textarea id="markdownEditor"></textarea>
+    <div id="preview"></div>
+</body>
+
+</html>
