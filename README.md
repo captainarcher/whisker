@@ -1,3 +1,5 @@
+Note: this software is no longer maintained. You can achieve better results with pretty much any AI software now.
+
 # whisker
 This is a simple single page javascript app that enables a user to do the following:
 1. optionally upload an existing markdown version of their resume (.md file). If you don't have one yet, that's okay and you can start from scratch. Unfamiliar with markdown? Consider this [cheat sheet](https://www.markdownguide.org/cheat-sheet/).
